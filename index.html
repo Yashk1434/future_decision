@@ -1,0 +1,89 @@
+<html>
+
+	<head>
+
+	<title> Future Decision </title>
+
+	<style>
+
+		* {font-size:50px;}
+		body {background-color:lavender;}
+
+	</style>
+
+	<script>
+		function yourpath(){
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let opt1 = document.getElementById("option1");
+			let opt2 = document.getElementById("option2");
+			let opt3 = document.getElementById("option3");
+			let ans = document.getElementById("ans");
+			
+			let choice = "";
+			if (opt1.checked)		choice = "Job";
+			else if (opt2.checked)		choice = "MS";
+			else				choice = "MBA";
+
+
+			let msg = "Arey " + name.value + " tula " + choice + " karaychay";
+			ans.innerHTML = msg;
+			
+			if (name.value == "")
+		{
+			alert("Please enter something");
+			ans.innerHTML = "";
+			name.focus();
+			return;
+		}
+		else if (name.value.trim() == "")
+		{
+			alert("Please enter a name");
+			ans.innerHTML = "";
+			name.focus();
+			return;
+			
+		}
+		else if (! name.value.match(/^[A-Za-z ]+$/))
+		{
+			alert("Please enter alphabets");
+			name.value = "";
+			ans.innerHTML = "";
+			name.focus();
+			return;
+			
+		}
+		
+		}
+	
+	</script>
+
+
+
+	</head>
+
+	<body>
+	<center>
+		<h1>Pudcha kai vichar</h1>
+		
+		<form onsubmit="yourpath()">
+			<input type="text" placeholder="Your Name" id="name"/>
+			<br><br>
+			<h1> Hyaatun kai banaychay tula</h1>
+			<input type="radio" name="a" id="option1" checked="true" /> Job
+			<input type="radio" name="a" id="option2" /> MS
+			<input type="radio" name="a" id="option3" /> MBA
+			<br><br>
+			<input type="submit" />
+
+		</form>	
+		<h2 id="ans"> </h2>
+	
+
+	</center>
+	</body>
+
+
+
+
+</html>
